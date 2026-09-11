@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThyroCheck AI — Thyroid Screening Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="brand"><span class="logo">T</span> ThyroCheck <span class="ai">AI</span></div>
+    <span class="badge">AI HEALTH SCREENING DEMO</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SMART • SIMPLE • EXPLAINABLE</p>
+        <h1>Thyroid screening,<br><span>powered by AI.</span></h1>
+        <p class="subtitle">Enter laboratory values and basic clinical indicators to generate an educational model-based risk estimate.</p>
+        <a href="#screening" class="primary-btn">Start screening ↓</a>
+      </div>
+      <div class="hero-card">
+        <div class="pulse">✦</div>
+        <h3>Model-ready architecture</h3>
+        <p>The interface is designed so a trained ML classifier can replace the demo scoring function later.</p>
+        <div class="mini-stats"><div><strong>TSH</strong><small>key marker</small></div><div><strong>T3/T4</strong><small>hormones</small></div><div><strong>ML</strong><small>prediction</small></div></div>
+      </div>
+    </section>
+
+    <section id="screening" class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">STEP 01</p><h2>Enter patient indicators</h2></div>
+        <span class="secure">● Demo mode</span>
+      </div>
+      <form id="screenForm">
+        <div class="grid">
+          <label>Age <input id="age" type="number" min="1" max="120" placeholder="e.g. 35" required></label>
+          <label>TSH (mIU/L) <input id="tsh" type="number" min="0" step="0.01" placeholder="e.g. 2.5" required></label>
+          <label>Total T3 (ng/dL) <input id="t3" type="number" min="0" step="0.1" placeholder="e.g. 120" required></label>
+          <label>Total T4 (µg/dL) <input id="t4" type="number" min="0" step="0.1" placeholder="e.g. 8" required></label>
+          <label>On thyroid medication?
+            <select id="med"><option value="0">No</option><option value="1">Yes</option></select>
+          </label>
+          <label>Previous thyroid history?
+            <select id="history"><option value="0">No</option><option value="1">Yes</option></select>
+          </label>
+        </div>
+        <button class="primary-btn full" type="submit">Analyze with AI →</button>
+      </form>
+    </section>
+
+    <section id="result" class="result panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">STEP 02</p><h2>Screening result</h2></div><span id="resultTag" class="result-tag">MODEL ESTIMATE</span></div>
+      <div class="result-grid">
+        <div class="score-wrap"><div id="score" class="score">--%</div><p>estimated screening risk</p></div>
+        <div><h3 id="resultTitle">Awaiting analysis</h3><p id="resultText">Enter values above to see the model demonstration result.</p><div class="meter"><span id="meterFill"></span></div><div class="legend"><span>Lower</span><span>Higher</span></div></div>
+      </div>
+      <button class="secondary-btn" onclick="document.getElementById('screening').scrollIntoView({behavior:'smooth'})">Run another screening</button>
+    </section>
+
+    <section class="info">
+      <div><span>01</span><h3>Lab values</h3><p>TSH, T3 and T4 are commonly used thyroid-related laboratory measurements.</p></div>
+      <div><span>02</span><h3>AI layer</h3><p>This demo uses a transparent scoring function. A real trained model can be integrated later.</p></div>
+      <div><span>03</span><h3>Responsible use</h3><p>This is an educational prototype and is not a medical diagnosis or treatment tool.</p></div>
+    </section>
+  </main>
+
+  <footer>ThyroCheck AI © 2026 · Educational / research prototype · Not medical advice</footer>
+  <script src="script.js"></script>
+</body>
+</html>
