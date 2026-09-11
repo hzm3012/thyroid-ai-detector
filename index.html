@@ -3,73 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThyroCheck AI — Thyroid Screening Demo</title>
+  <meta name="description" content="ThyroCheck AI educational thyroid screening prototype." />
+  <title>ThyroCheck AI | Smart Thyroid Screening</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="nav">
-    <div class="brand"><span class="logo">T</span> ThyroCheck <span class="ai">AI</span></div>
-    <span class="badge">AI HEALTH SCREENING DEMO</span>
+    <a class="brand" href="#top"><span class="logo">T</span><span>ThyroCheck <b>AI</b></span></a>
+    <nav><a href="#screening">Screening</a><a href="#how">How it works</a><a href="#about">About</a></nav>
+    <span class="status"><i></i> Prototype online</span>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">SMART • SIMPLE • EXPLAINABLE</p>
-        <h1>Thyroid screening,<br><span>powered by AI.</span></h1>
-        <p class="subtitle">Enter laboratory values and basic clinical indicators to generate an educational model-based risk estimate.</p>
-        <a href="#screening" class="primary-btn">Start screening ↓</a>
+        <div class="eyebrow"><span class="spark">✦</span> AI-ASSISTED HEALTH RESEARCH</div>
+        <h1>Understand thyroid<br><span>patterns with AI.</span></h1>
+        <p class="subtitle">A clean, interactive research prototype that turns basic thyroid indicators into an easy-to-read model estimate.</p>
+        <div class="hero-actions"><a href="#screening" class="primary-btn">Launch screening <span>→</span></a><a href="#how" class="text-btn">Explore the model ↓</a></div>
+        <div class="trust-row"><span>✓ Educational prototype</span><span>✓ No data storage</span><span>✓ Explainable output</span></div>
       </div>
-      <div class="hero-card">
-        <div class="pulse">✦</div>
-        <h3>Model-ready architecture</h3>
-        <p>The interface is designed so a trained ML classifier can replace the demo scoring function later.</p>
-        <div class="mini-stats"><div><strong>TSH</strong><small>key marker</small></div><div><strong>T3/T4</strong><small>hormones</small></div><div><strong>ML</strong><small>prediction</small></div></div>
+      <div class="hero-visual">
+        <div class="orb"><div class="orb-core">AI</div><span class="ring r1"></span><span class="ring r2"></span><span class="dot d1"></span><span class="dot d2"></span></div>
+        <div class="floating-card card-top"><span class="tiny-icon">⌁</span><div><b>3 biomarkers</b><small>TSH · T3 · T4</small></div></div>
+        <div class="floating-card card-bottom"><span class="signal">↗</span><div><b>Explainable</b><small>Transparent scoring</small></div></div>
       </div>
     </section>
 
-    <section id="screening" class="panel">
-      <div class="section-heading">
-        <div><p class="eyebrow">STEP 01</p><h2>Enter patient indicators</h2></div>
-        <span class="secure">● Demo mode</span>
-      </div>
+    <section id="screening" class="panel screening-panel">
+      <div class="section-heading"><div><span class="step">01</span><div><p class="eyebrow">PATIENT INPUT</p><h2>Build a screening profile</h2></div></div><span class="demo-pill">● DEMO MODE</span></div>
+      <div class="notice"><span>ⓘ</span><p><b>Research prototype:</b> values are processed only in your browser. This tool provides an educational model estimate, not a diagnosis.</p></div>
       <form id="screenForm">
         <div class="grid">
-          <label>Age <input id="age" type="number" min="1" max="120" placeholder="e.g. 35" required></label>
-          <label>TSH (mIU/L) <input id="tsh" type="number" min="0" step="0.01" placeholder="e.g. 2.5" required></label>
-          <label>Total T3 (ng/dL) <input id="t3" type="number" min="0" step="0.1" placeholder="e.g. 120" required></label>
-          <label>Total T4 (µg/dL) <input id="t4" type="number" min="0" step="0.1" placeholder="e.g. 8" required></label>
-          <label>On thyroid medication?
-            <select id="med"><option value="0">No</option><option value="1">Yes</option></select>
-          </label>
-          <label>Previous thyroid history?
-            <select id="history"><option value="0">No</option><option value="1">Yes</option></select>
-          </label>
+          <label><span>Age</span><div class="input-wrap"><input id="age" type="number" min="1" max="120" placeholder="35" required><em>years</em></div></label>
+          <label><span>TSH</span><div class="input-wrap"><input id="tsh" type="number" min="0" step="0.01" placeholder="2.50" required><em>mIU/L</em></div></label>
+          <label><span>Total T3</span><div class="input-wrap"><input id="t3" type="number" min="0" step="0.1" placeholder="120" required><em>ng/dL</em></div></label>
+          <label><span>Total T4</span><div class="input-wrap"><input id="t4" type="number" min="0" step="0.1" placeholder="8.0" required><em>µg/dL</em></div></label>
+          <label><span>Thyroid medication</span><select id="med"><option value="0">No medication</option><option value="1">Yes, currently taking</option></select></label>
+          <label><span>Previous thyroid history</span><select id="history"><option value="0">No known history</option><option value="1">Yes, previous history</option></select></label>
         </div>
-        <button class="primary-btn full" type="submit">Analyze with AI →</button>
+        <div class="form-footer"><button class="primary-btn analyze" type="submit"><span class="btn-icon">✦</span> Analyze indicators <span>→</span></button><button class="ghost-btn" type="button" id="sampleBtn">Use sample data</button></div>
       </form>
     </section>
 
-    <section id="result" class="result panel hidden">
-      <div class="section-heading"><div><p class="eyebrow">STEP 02</p><h2>Screening result</h2></div><span id="resultTag" class="result-tag">MODEL ESTIMATE</span></div>
+    <section id="result" class="panel result hidden">
+      <div class="section-heading"><div><span class="step">02</span><div><p class="eyebrow">AI OUTPUT</p><h2>Screening estimate</h2></div></div><span id="resultTag" class="result-tag">MODEL ESTIMATE</span></div>
       <div class="result-grid">
-        <div class="score-wrap"><div id="score" class="score">--%</div><p>estimated screening risk</p></div>
-        <div><h3 id="resultTitle">Awaiting analysis</h3><p id="resultText">Enter values above to see the model demonstration result.</p><div class="meter"><span id="meterFill"></span></div><div class="legend"><span>Lower</span><span>Higher</span></div></div>
+        <div class="score-card"><div class="score-ring"><div id="score" class="score">--%</div><small>risk estimate</small></div><p>Demo model output</p></div>
+        <div class="result-copy"><div class="result-status"><span id="statusDot"></span><span id="resultTitle">Awaiting analysis</span></div><p id="resultText">Enter values above to see the model demonstration result.</p><div class="meter"><span id="meterFill"></span></div><div class="legend"><span>LOWER</span><span>MODEL SCORE</span><span>HIGHER</span></div><div class="result-note">⚠ <b>Important:</b> This score is not a medical diagnosis and should not be used to make treatment decisions.</div></div>
       </div>
-      <button class="secondary-btn" onclick="document.getElementById('screening').scrollIntoView({behavior:'smooth'})">Run another screening</button>
+      <button class="secondary-btn" id="againBtn">↻ Run another screening</button>
     </section>
 
-    <section class="info">
-      <div><span>01</span><h3>Lab values</h3><p>TSH, T3 and T4 are commonly used thyroid-related laboratory measurements.</p></div>
-      <div><span>02</span><h3>AI layer</h3><p>This demo uses a transparent scoring function. A real trained model can be integrated later.</p></div>
-      <div><span>03</span><h3>Responsible use</h3><p>This is an educational prototype and is not a medical diagnosis or treatment tool.</p></div>
-    </section>
+    <section id="how" class="feature-section"><div class="section-title"><span class="step">03</span><div><p class="eyebrow">THE PIPELINE</p><h2>Simple inputs. Clear output.</h2></div></div><div class="features"><article><div class="feature-icon">01</div><h3>Enter indicators</h3><p>Provide age, TSH, T3, T4 and two basic history indicators.</p></article><article><div class="feature-icon">02</div><h3>Analyze patterns</h3><p>The current demo applies a transparent scoring function to the inputs.</p></article><article><div class="feature-icon">03</div><h3>Read the estimate</h3><p>A visual score makes the prototype result easy to understand at a glance.</p></article></div></section>
+
+    <section id="about" class="about-card"><div><p class="eyebrow">READY FOR ML</p><h2>Designed to grow into a real ML project.</h2><p>The front end is structured so the demo scoring function can later be replaced with a properly trained and validated classifier, with documented preprocessing and evaluation.</p></div><div class="tech-stack"><span>UI</span><span>FEATURES</span><span>MODEL</span><span>VALIDATION</span></div></section>
   </main>
-
-  <footer>ThyroCheck AI © 2026 · Educational / research prototype · Not medical advice</footer>
+  <footer><span>ThyroCheck AI © 2026</span><span>Educational / research prototype · Not medical advice</span></footer>
   <script src="script.js"></script>
 </body>
 </html>
